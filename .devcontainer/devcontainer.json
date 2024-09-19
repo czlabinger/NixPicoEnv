@@ -2,7 +2,6 @@
   "name": "Raspberry Pi Pico SDK DevContainer",
   "dockerFile": "Dockerfile",
   "context": ".",
-  "workspaceFolder": "/workspace",
   "postCreateCommand": "mkdir -p build && cd build && cmake .. -DPICO_BOARD=pico_w",
   "shutdownAction": "stopContainer",
   "customizations": {

@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
   git \
   python3 \
   g++ \
+  zsh \
   && rm -rf /var/lib/apt/lists/*
 
 # Clone the Raspberry Pi Pico SDK repository

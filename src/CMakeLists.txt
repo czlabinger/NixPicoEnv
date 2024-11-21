@@ -21,12 +21,14 @@ pico_sdk_init()
 
 include(example_auto_set_url.cmake)
 
-add_subdirectory(blink)
+#add_subdirectory(blink)
 #add_subdirectory(hello)
+add_subdirectory(RP2040-CAN-Driver)
 #add_subdirectory(mpu6050_i2c)
 #add_subdirectory(mcp2515_can)
 #add_subdirectory(mqtt)
 #add_subdirectory(spi_master_slave)
+#add_subdirectory(mcp2515_can)
 
 # Add FreeRTOS examples
 #add_subdirectory(freertos)

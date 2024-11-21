@@ -20,6 +20,7 @@ RUN cd pico-sdk && git submodule update --init
 
 # Set the PICO_SDK_PATH environment variable
 ENV PICO_SDK_PATH=/pico-sdk
+RUN export PICO_SDK_PATH=/pico-sdk
 
 # Create a new directory for the build
 RUN mkdir build

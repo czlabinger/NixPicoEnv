@@ -1,3 +1,6 @@
 [submodule "src/mcp2515_can/pico-mcp2515"]
 	path = src/mcp2515_can/pico-mcp2515
 	url = https://github.com/adamczykpiotr/pico-mcp2515
+[submodule "src/mcp2515_can/pico-mcp2515-driver"]
+	path = src/mcp2515_can/pico-mcp2515-driver
+	url = https://github.com/a-kipp/RP2040-CAN-Driver

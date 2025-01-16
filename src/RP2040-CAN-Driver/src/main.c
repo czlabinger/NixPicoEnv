@@ -36,7 +36,7 @@ int main() {
     Mcp2515 canA;
     mcp2515_init(&canA, PIN_CS_A, CAN_BAUDRATE, SPI_PORT);
     // Controller is in loopback mode after initialization.
-    mcp2515_setOpmode(&canA, LOOPBACK_MODE);
+    mcp2515_setOpmode(&canA, NORMAL_MODE);
     
 
     // Speedtest
@@ -63,22 +63,24 @@ int main() {
 
     int64_t delay;
 
-    while (1)
-    {
-
-        gpio_put(25, 1);
+    while (1) {
 
         timeStart1 = get_absolute_time();
         mcp2515_sendMessageBlocking(&canA, &transmitBuffer);
         mcp2515_recieveMessageBlocking(&canA, &recieveBuffer);
         delay = (delay + absolute_time_diff_us(timeStart1, get_absolute_time())) / 2;
         if (*(uint32_t*)transmitBuffer.data != *(uint32_t*)recieveBuffer.data) {
-            if (!transmitBuffer.isRTR) errors++;
+            if (!transmitBuffer.isRTR) {
+                printf("Trnasmit is RTR");
+                errors++;
+            }
         }
         if (transmitBuffer.standardId != recieveBuffer.standardId) {
+            printf("StandardId Error");
             errors++;
         }
         if (transmitBuffer.length != recieveBuffer.length) {
+            printf("Length Error");
             errors++;
         }
         if (absolute_time_diff_us(timeStart, get_absolute_time()) > 1000000) {

@@ -1,4 +1,3 @@
-
 #include "hardware/spi.h"
 #include "mcp2515.c"
 #include "pico/stdlib.h"
@@ -69,16 +68,16 @@ int main() {
         (delay + absolute_time_diff_us(timeStart1, get_absolute_time())) / 2;
     if (*(uint32_t *)transmitBuffer.data != *(uint32_t *)recieveBuffer.data) {
       if (!transmitBuffer.isRTR) {
-        printf("Trnasmit is RTR");
+        printf("Trnasmit is RTR\n");
         errors++;
       }
     }
     if (transmitBuffer.standardId != recieveBuffer.standardId) {
-      printf("StandardId Error");
+      printf("StandardId Error\n");
       errors++;
     }
     if (transmitBuffer.length != recieveBuffer.length) {
-      printf("Length Error");
+      printf("Length Error\n");
       errors++;
     }
     if (absolute_time_diff_us(timeStart, get_absolute_time()) > 1000000) {

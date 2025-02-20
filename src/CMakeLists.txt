@@ -23,7 +23,7 @@ include(example_auto_set_url.cmake)
 
 #add_subdirectory(blink)
 #add_subdirectory(hello)
-add_subdirectory(RP2040-CAN-Driver)
+#add_subdirectory(RP2040-CAN-Driver)
 #add_subdirectory(mpu6050_i2c)
 #add_subdirectory(mcp2515_can)
 #add_subdirectory(mqtt)
@@ -31,7 +31,7 @@ add_subdirectory(RP2040-CAN-Driver)
 #add_subdirectory(mcp2515_can)
 
 # Add FreeRTOS examples
-#add_subdirectory(freertos)
+add_subdirectory(freertos)
 
 add_compile_options(-Wall
         -Wno-format          # int != int32_t as far as the compiler is concerned because gcc has int32_t as long int
